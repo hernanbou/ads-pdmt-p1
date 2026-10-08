@@ -5,6 +5,18 @@
   box-sizing : border-box;
 }
 
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo{
+  display: flex;
+  gap: 5px;
+}
+
 .titulo {
   color: blueviolet;
   font-size: 26px;
