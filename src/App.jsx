@@ -1,4 +1,5 @@
 import React from "react"
+import 'primeicons/primeicons.css';
 
 export default class App extends React.Component {
 
@@ -9,8 +10,11 @@ export default class App extends React.Component {
 
     return(
       <div>
-        <div>
-          <h1 className="titulo">RolêRadar</h1>
+        <div className="header">
+          <div className="logo">
+            <i className=" pi pi-map-marker" style={{ fontSize: '30px', color: 'red'}}/>
+            <h1 className="titulo">RolêRadar</h1>
+          </div>
           <p style={estiloSubtitulo}>Descubra o que existe perto de você</p>
         </div>
         <div className="rodape">
