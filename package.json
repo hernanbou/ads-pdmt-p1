@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@primeuix/styled": "^1.0.0",
+    "@primeuix/themes": "^3.0.1",
     "primeflex": "^4.0.0",
     "primeicons": "^8.0.2",
     "primereact": "^11.2.0",
@@ -25,6 +27,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.6",
     "globals": "^17.12.0",
+    "sass-embedded": "^1.105.1",
     "vite": "^8.3.0"
   }
 }
