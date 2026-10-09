@@ -1,6 +1,7 @@
 import React from 'react'
 import 'primeicons/primeicons.css';
-// import { Cartao } from "./components/Cartao";
+import { Cartao } from "./components/Cartao";
+import MeuPonto from './components/MeuPonto';
 import Loading from "./components/Loading"
 import { Creditos } from './components/Creditos';
 
@@ -15,7 +16,7 @@ export default class App extends React.Component {
 
 
   componentDidMount(){
-    this.obterLocalização()
+    this.obterLocalizacao()
   }
 
   render(){
@@ -41,9 +42,14 @@ export default class App extends React.Component {
             !this.state.latitude ?
               <Loading mensagem='Aguardando permissão de localização...'/>
               :
-              <p>
-                Localização obtida: Latitude: {this.state.latitude}, Longitude: {this.state.longitude}
-              </p>
+              <Cartao cabecalho='Você está aqui'>
+                <MeuPonto
+                  latitude={this.state.latitude}
+                  longitude={this.state.longitude}
+                  horarioLocalizacao={this.state.horarioLocalizacao}
+                  onAtualizar={this.obterLocalizacao}
+                />
+              </Cartao>
           }
         </div>
         <div className="rodape">
@@ -53,7 +59,7 @@ export default class App extends React.Component {
     )
   }
   
-  obterLocalização = () => {
+  obterLocalizacao = () => {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({
