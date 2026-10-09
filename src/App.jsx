@@ -1,9 +1,13 @@
 import React from 'react'
-import 'primeicons/primeicons.css';
-import { Cartao } from "./components/Cartao";
-import MeuPonto from './components/MeuPonto';
+import 'primeicons/primeicons.css'
+
+
+import { Button } from 'primereact/button';
+import { Cartao } from "./components/Cartao"
+import { Creditos } from './components/Creditos'
+import geoapifyClient from './utils/geoapifyClient'
+import MeuPonto from './components/MeuPonto'
 import Loading from "./components/Loading"
-import { Creditos } from './components/Creditos';
 
 export default class App extends React.Component {
 
@@ -17,6 +21,20 @@ export default class App extends React.Component {
 
   componentDidMount(){
     this.obterLocalizacao()
+  }
+
+  onBuscaRealizada = async (categoria, raio) => {
+    const {latitude, longitude} = this.state;
+
+    const result = await geoapifyClient.get('/places', {
+      params:{
+        categories: categoria,
+        filter: `circle:${longitude},${latitude},${raio}`,
+        bias: `proximity:${longitude},${latitude}`,
+        limit: 20
+      }
+    })
+    console.log(result.data.features)
   }
 
   render(){
@@ -51,6 +69,11 @@ export default class App extends React.Component {
                 />
               </Cartao>
           }
+          <Button
+            className='flex justify-content-center align-items-center gap-3 border-3 border-primary border-round-lg p-2 text-primary text-xl font-bold transition-all transition-duration-500'
+            onClick={() => this.onBuscaRealizada('catering.cafe', 1000)}>
+              Testar Busca
+          </Button>
         </div>
         <div className="rodape">
           <p>RolêRadar © {obterAno()}</p>
