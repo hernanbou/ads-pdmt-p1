@@ -51,7 +51,7 @@ export default class MeuPonto extends Component {
                 <p>Localização obtida há {segundos} s</p>
 
                 <Button
-                    className='flex justify-content-center align-items-center gap-3 border-3 border-green-400 border-round-lg p-2 text-green-400 text-xl font-bold transition-all transition-duration-500 hover:bg-green-400 hover:text-color'
+                    className='flex justify-content-center align-items-center gap-3 bg-black-alpha-40 border-3 border-green-400 border-round-lg p-2 text-green-400 text-xl font-bold transition-all transition-duration-500 hover:bg-green-400 hover:text-color'
                     onClick={this.props.onAtualizar}>
                     <i className="pi pi-refresh"/>
                     <span>Atualizar localização</span>
