@@ -102,12 +102,12 @@ export default class App extends React.Component {
             {this.state.buscando ? (
               <Loading mensagem="Procurando lugares..." />
                 ) : this.state.erroBusca ? (
-                  <p className='text-gray-300 text-xs text-bold border-round-lg p-5 bg-gray-500'>
+                  <p className='text-gray-300 text-xl text-bold border-round-lg p-5 bg-gray-500'>
                     {this.state.erroBusca}
                   </p>
                 ) : this.state.lugares === null ? null :
                 this.state.lugares.length === 0 ? (
-                  <p className='text-gray-300 text-xs text-bold border-round-lg p-5 bg-gray-500'>
+                  <p className='text-gray-300 text-xl text-bold border-round-lg p-5 bg-gray-500'>
                     Nenhum lugar encontrado. Tente aumentar o raio.
                   </p>
                 ) : (
