@@ -38,8 +38,8 @@ export default class MeuPonto extends Component {
         )
 
         return (
-            <div className='flex flex-column gap-2 p-2'>
-                <div className='w-full border-round-xl overflow-hidden'>
+            <div className='flex flex-column gap-2'>
+                <div className='w-full mt-2 border-round-xl overflow-hidden'>
                     <img
                         src={urlMapa}
                         alt='Localização'

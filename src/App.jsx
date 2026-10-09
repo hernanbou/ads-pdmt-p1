@@ -1,13 +1,12 @@
 import React from 'react'
 import 'primeicons/primeicons.css'
 
-
-import { Button } from 'primereact/button';
 import { Cartao } from "./components/Cartao"
 import { Creditos } from './components/Creditos'
 import geoapifyClient from './utils/geoapifyClient'
 import MeuPonto from './components/MeuPonto'
 import Loading from "./components/Loading"
+import Busca from './components/Busca';
 
 export default class App extends React.Component {
 
@@ -69,11 +68,9 @@ export default class App extends React.Component {
                 />
               </Cartao>
           }
-          <Button
-            className='flex justify-content-center align-items-center gap-3 border-3 border-primary border-round-lg p-2 text-primary text-xl font-bold transition-all transition-duration-500'
-            onClick={() => this.onBuscaRealizada('catering.cafe', 1000)}>
-              Testar Busca
-          </Button>
+          <Cartao cabecalho="O que você procura?">
+            <Busca onBuscaRealizada={this.onBuscaRealizada}/>
+          </Cartao>
         </div>
         <div className="rodape">
           <p>RolêRadar © {obterAno()}</p>
